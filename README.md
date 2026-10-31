@@ -2,18 +2,6 @@
 
 # Ewb CyberSecurity Internship - Project
 
-</div>
-
-- **Name:** Ashish Kumar
-- **College:** Jai Narain College of Technology, Bhopal
-- **Batch:** October 2026
-- **Project Title:** Phishing URL Awareness Checker
-- **Completion Date:** 30 October, 2026
-- **Mail:** kr.ashish535.hd@gmail.com
-
-
-<div align="center">
- 
 **Read the link. Spot the clues. Stay alert.**
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
@@ -24,18 +12,32 @@
 
 🔍 Reads the **text** of a URL and points out warning signs. It never opens the link.
 
+
+
 </div>
 
 
+- **Name:** Ashish Kumar
+- **College:** Jai Narain College of Technology, Bhopal
+- **Batch:** October 2026
+- **Project Title:** Phishing URL Awareness Checker
+- **Completion Date:** 30 October, 2026
+- **Mail:** kr.ashish535.hd@gmail.com
+
+
+### 📎 Academic Deliverables
+
+> **[📄 CLICK HERE TO VIEW: EWB Assessment 01 - Security Foundations (PDF)](./EWB_Cyber_Assessment01_Ashish_Kumar.pdf)**
+> *This link directly opens my accompanying theoretical cybersecurity assessment included in this repository.*
 ---
 
-## 📑 Contents
-[Overview](#-overview) · [Quick Start](#-quick-start) · [Features](#-features) · [How It Works](#-how-it-works) · [Warning Signs](#-the-six-warning-signs) · [Project Structure](#-project-structure) · [Requirements](#-requirements) · [How to Run](#-how-to-run) · [Example Output](#-example-output) · [Testing](#-testing) · [Screenshots](#-screenshots) · [Improvements](#-improvements) · [Limitations](#-limitations) · [Ethical Use](#-ethical-use) · [Additional Document](#-additional-document) · [Author](#-author)
+### 📖 Executive Summary
+
+Phishing remains a primary vector for credential theft and network compromise. This project serves as a first-line educational defense mechanism. It is a Python-based command-line interface (CLI) that parses raw URL strings and runs heuristic checks to identify common obfuscation techniques used by threat actors.
+Security Guarantee: This tool operates entirely on local string manipulation. It makes zero HTTP/DNS network requests, ensuring malicious payloads are never accidentally executed or visited.
+
 
 ---
-
-## 📖 Overview
-Phishing is a trick where criminals send fake links or messages to make people share passwords, card numbers or OTPs. This project is a small Python command-line tool that reads the text of a URL and points out selected warning signs. It only inspects the text. It never opens or visits the URL.
 
 ## ⚡ Quick Start
 ```text
@@ -43,26 +45,35 @@ py phishing_checker.py
 ```
 Then type a sample URL such as `http://192.0.2.10/account` and press Enter. Type `q` to quit.
 
-## ✨ Features
-- 🔸 Detects an @ symbol in the URL
-- 📏 Flags unusually long URLs (over 100 characters)
-- 🔢 Flags IP-address hostnames
-- 🌐 Flags many hostname segments (5 or more)
-- 🔤 Flags punycode-style hostnames (xn--)
-- 🔓 Flags the HTTP scheme
-- 🔁 Loop mode: check several URLs in one run, type q to quit
-- ⚠️ "REVIEW CAREFULLY" summary with the number of warning signs found
 
-## 🔄 How It Works
+## ✨ Core Threat Detection Features
+
+- 🔸 Credential Embedding (`@`): Flags URLs attempting to mask the true destination domain (e.g., `http://legit.com@malicious.com`).
+- 📏 Length Obfuscation: Detects URLs exceeding 100 characters, a tactic used to push the true domain out of the user's visible address bar.
+- 🔢 Raw IP Routing: Flags the use of direct IPv4 addresses instead of registered domain names.
+- 🌐 Subdomain Stacking: Identifies excessive hostname segmentation (5+ parts) often used to mimic trusted brands.
+- 🔤 Punycode Deception: Detects `xn--` prefixes, indicating an Internationalized Domain Name (IDN) potentially used for homograph attacks.
+- 🔓 Unencrypted Protocols: Warns users when the deprecated, plaintext `HTTP` scheme is used.
+- 🔁 Loop mode: check several URLs in one run, type q to quit
+- ⚠️ "REVIEW CAREFULLY" summary with the number of warning signs found.
+  
+
+## 🔄 Technical Architecture
+
 ```mermaid
-flowchart LR
-    A[📝 Read the text] --> B[🧹 Clean: strip spaces]
-    B --> C[➕ Add http:// if missing]
-    C --> D[✂️ Split into parts]
-    D --> E[🔎 Run six checks]
-    E --> F[📋 Print findings]
+graph TD
+    A[Input: Raw URL String] --> B[Sanitization: Strip Whitespace]
+    B --> C{Missing Scheme?}
+    C -->|Yes| D[Append default http://]
+    C -->|No| E[Parse via urllib]
+    D --> E
+    E --> F[Extract Hostname]
+    F --> G[Run 6 Heuristic Security Checks]
+    G --> H[Output: Threat Report to Console]
 ```
+
 The program only handles text. It has no network code, so it cannot visit a URL.
+
 
 ## 🚩 The Six Warning Signs
 
@@ -82,6 +93,7 @@ These are clues, not proof. A link with zero clues can still be dangerous, for e
 
 </details>
 
+
 ## 🗂️ Project Structure
 ```text
 phishing-url-awareness/
@@ -96,15 +108,17 @@ phishing-url-awareness/
     └── test_results.png                       # proof of the tests
 ```
 
+
 ## 📦 Requirements
 Python 3.10 or later. No extra packages.
 
-## ▶️ How to Run
+## ▶️ Quick Start Guide
 Windows: `py phishing_checker.py` (or `python phishing_checker.py`)
 
 Mac/Linux: `python3 phishing_checker.py`
 
-## 💻 Example Output
+
+## 💻 Console Demonstration
 ```text
 EWB Phishing URL Awareness Checker
 Text checks only - this program does not open URLs.
@@ -122,6 +136,7 @@ Enter a sample URL (or type q to quit): q
 Goodbye! Stay alert online.
 ```
 
+
 ## 🎯 Try It Yourself
 Use only these sample strings. They use reserved example-style domains and documentation IP space.
 
@@ -132,6 +147,7 @@ Use only these sample strings. They use reserved example-style domains and docum
 | `http://example.com@sample.invalid/login` | @ symbol + HTTP warnings |
 | `https://a.b.c.d.e.example.invalid/path` | Many hostname segments warning |
 | `https://xn--example.invalid/` | Punycode-style hostname warning |
+
 
 ## 🧪 Testing
 Full table is in `tests/test_samples.md`.
@@ -144,7 +160,8 @@ Full table is in `tests/test_samples.md`.
 | 4 | `https://a.b.c.d.e.example.invalid/path` | Many hostname segments | Many hostname segments warning shown | ✅ PASS |
 | 5 | `https://xn--example.invalid/` | Punycode-style hostname | Punycode-style hostname warning shown | ✅ PASS |
 
-## 📸 Screenshots
+
+## 📸 Execution Evidence
 **Sample run**
 
 ![Sample run](screenshots/sample_run.png)
@@ -153,21 +170,36 @@ Full table is in `tests/test_samples.md`.
 
 ![Test results](screenshots/test_results.png)
 
-## 🚀 Improvements
-1. **🔁 Loop with quit** - Earlier the program checked only one URL and then closed. I replaced the single input with a `while True` loop, so I can check many URLs in one run. Typing `q`, `quit` or `exit` stops the loop. I chose it because it makes testing faster. I tested it by entering several URLs one after another, then an empty input, then `q`, and the program ended with "Goodbye!".
-2. **⚠️ "Review carefully" summary** - I added a helper function `has_warnings()` that separates real warnings from information messages such as "No URL entered". When real warnings are found, the program prints "REVIEW CAREFULLY" with the number of warning signs. I tested it: it appeared for `http://192.0.2.10/account` (2 warnings), and it did not appear for `https://www.example.com/login` or for empty input.
 
-## ⚠️ Limitations
-This is an educational tool. It only reads URL text. It does not visit
-URLs, scan for malware or prove that a URL is safe. No warning signs
-found does NOT mean a URL is safe.
+## 🚀 Developer Enhancements (Beyond Base Requirements)
+To elevate the baseline project, I engineered the following improvements:
+
+ **1.** Continuous Execution Loop (`while True`):
+The Upgrade: Transitioned the script from a single-execution model to a continuous session. Users can evaluate bulk URLs rapidly and gracefully terminate the process using standard exit commands (`q`, `quit`, `exit`).
+
+ **2.** Dynamic Threat Summarization (`has_warnings()`):
+The Upgrade: Implemented a boolean helper function to distinguish between benign system messages and actual security flags. If true threats are detected, it dynamically renders a `REVIEW CAREFULLY: [X] warning sign(s) found` alert to improve user visibility.
+
+ **3.** Exception Handling for Malformed Syntax:
+The Upgrade: Wrapped the `urllib.parse` engine in a `try/except` block targeting `ValueErrors`. This prevents terminal crashes when users input intentionally broken or invalid IPv6 structures (e.g., `http://[bad`).
+
+
+## ⚠️ Scope & Limitations
+
+This repository is an educational prototype. It performs static text analysis only. A URL returning "zero warnings" does not cryptographically or empirically guarantee safety. Threat actors frequently compromise legitimate domains that will bypass all text-based heuristic checks. Always utilize comprehensive reputation scanners (e.g., VirusTotal) for real-world incidents.
+
 
 ## 🤝 Ethical Use
 Use sample strings only. Do not collect credentials. Do not use this
 project to deceive anyone or to test websites without permission.
 
+
 ## 📎 Additional Document
 This repository also includes `EWB_Cyber_Assessment01_Ashish_Kumar.pdf`, my EWB Assessment 01 (Security Foundations), uploaded as instructed by the EWB team. It is separate from the Phishing URL Awareness Checker mini project.
 
+
 ## 👤 Author
-Ashish Kumar, AI Powered Cybersecurity Internship, EWB Courses
+Ashish Kumar
+<div align="center">
+<i>Built securely and ethically for the EWB AI-Powered Cybersecurity Internship.</i>
+</div>
