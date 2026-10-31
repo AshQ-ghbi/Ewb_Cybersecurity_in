@@ -46,7 +46,13 @@ def inspect_url(raw_url):
         
     return findings
 
-# Improvement A: Loop with quit command
+# Improvement B Helper: Separate real warnings from info messages
+INFO_MESSAGES = ("No URL entered", "Could not identify", "No listed warning", "This text is not")
+
+def has_warnings(findings):
+    return not findings[0].startswith(INFO_MESSAGES)
+
+# Improvement A & B: Loop with quit command and 'Review Carefully' summary
 def main():
     print("EWB Phishing URL Awareness Checker")
     print("Text checks only - this program does not open URLs.")
@@ -58,10 +64,15 @@ def main():
             break
             
         print("\nResult:")
-        for item in inspect_url(raw_url):
+        findings = inspect_url(raw_url)
+        
+        for item in findings:
             print("- " + item)
             
-        print("\nNever enter passwords from unexpected links.")
+        if has_warnings(findings):
+            print("\nREVIEW CAREFULLY: " + str(len(findings)) + " warning sign(s) found.")
+            
+        print("Never enter passwords from unexpected links.")
 
 if __name__ == "__main__":
     main()
