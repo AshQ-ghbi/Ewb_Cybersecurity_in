@@ -30,7 +30,7 @@
 ---
 
 ## 📑 Contents
-[Overview](#-overview) · [Quick Start](#-quick-start) · [Features](#-features) · [How It Works](#-How-it-works) · [Warning Signs](#-the-six-warning-signs) · [Project Structure](#-Project-Structure) · [Requirements](#-requirements) · [How to Run](#-How-to-run) · [Example Output](#-example-output) · [Testing](#-testing) · [Screenshots](#-screenshots) · [Improvements](#-improvements) · [Limitations](#-limitations) · [Ethical Use](#-ethical-use) · [Additional Document](#-additional-document) · [Author](#-author)
+[Overview](#-overview) · [Quick Start](#-quick-start) · [Features](#-features) · [How It Works](#-how-it-works) · [Warning Signs](#-the-six-warning-signs) · [Project Structure](#-project-structure) · [Requirements](#-requirements) · [How to Run](#-how-to-run) · [Example Output](#-example-output) · [Testing](#-testing) · [Screenshots](#-screenshots) · [Improvements](#-improvements) · [Limitations](#-limitations) · [Ethical Use](#-ethical-use) · [Additional Document](#-additional-document) · [Author](#-author)
 
 ---
 
