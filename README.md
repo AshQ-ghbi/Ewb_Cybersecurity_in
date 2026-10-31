@@ -2,18 +2,18 @@
 
 # Ewb CyberSecurity Internship - Project
 
- **Name:** Ashish Kumar
- 
- **College:** Jai Narain College of Technology, Bhopal
- 
- **Batch:** October 2026
- 
- **Project Title:** Phishing URL Awareness Checker
- 
- **Completion Date:** 29 October, 2026
- 
- **Mail:** kr.ashish535.hd@gmail.comr 
+</div>
 
+- **Name:** Ashish Kumar
+- **College:** Jai Narain College of Technology, Bhopal
+- **Batch:** October 2026
+- **Project Title:** Phishing URL Awareness Checker
+- **Completion Date:** 30 October, 2026
+- **Mail:** kr.ashish535.hd@gmail.com
+
+
+<div align="center">
+ 
 **Read the link. Spot the clues. Stay alert.**
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
@@ -26,10 +26,11 @@
 
 </div>
 
+
 ---
 
 ## 📑 Contents
-[Overview](#-overview) · [Quick Start](#-quick-start) · [Features](#-features) · [How It Works](#-how-it-works) · [Warning Signs](#-the-six-warning-signs) · [Project Structure](#-project-structure) · [Requirements](#-requirements) · [How to Run](#-how-to-run) · [Example Output](#-example-output) · [Testing](#-testing) · [Screenshots](#-screenshots) · [Improvements](#-improvements) · [Limitations](#-limitations) · [Ethical Use](#-ethical-use) · [Additional Document](#-additional-document) · [Author](#-author)
+[Overview](#-overview) · [Quick Start](#-quick-start) · [Features](#-features) · [How It Works](#-how-it-works) · [Warning Signs](#-the-six-warning-signs) · [Project Structure](#-project-Structure) · [Requirements](#-requirements) · [How to Run](#-How-to-run) · [Example Output](#-example-output) · [Testing](#-testing) · [Screenshots](#-screenshots) · [Improvements](#-improvements) · [Limitations](#-Limitations) · [Ethical Use](#-ethical-use) · [Additional Document](#-additional-document) · [Author](#-author)
 
 ---
 
